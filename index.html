@@ -2,10 +2,7 @@
 <meta charset="utf-8">
 <title>JavaScript Notebook</title>
 
-<link rel="stylesheet" href="notebook.css">
-
-<script src="jquery.js"></script>
-<script src="notebook.js" async></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <form class="calculation">
 	<fieldset>
@@ -24,3 +21,49 @@
 	</fieldset>
 </form>
 
+<script>
+$('form.calculation').each(function() {
+	var form = this;
+	var data;
+
+	$(form).on('submit', false).on('input', function() {
+		try {
+			data = eval(form.dataInput.value);
+			form.dataOutput.value = eval('(function() {' + form.dataCalculation.value + '})()');
+			form.dataOutput.removeAttribute('data-error');
+		} catch (e) {
+			form.dataOutput.value = e.message;
+			form.dataOutput.setAttribute('data-error', true);
+		}
+	}).trigger('input');
+});
+</script>
+
+<style>
+body {
+	font-family: Courier, monospace;
+	font-size: 1.5rem;
+}
+
+fieldset {
+	border: none;
+	margin-bottom: 1rem;
+}
+
+textarea, output {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	height: 5rem;
+	border: 1px solid #ccc;
+	font-size: inherit;
+}
+
+textarea[name=dataCalculation] {
+	height: 10rem;
+}
+
+output[data-error] {
+	color: red;
+}
+</style>
