@@ -2,20 +2,20 @@
 <meta charset="utf-8">
 <title>JavaScript Notebook</title>
 
-<form class="calculation">
+<form>
 	<fieldset>
 		<legend>Data</legend>
-		<textarea name="dataInput">[1,2,15,19,25,94]</textarea>
+		<textarea name="input">[1,2,15,19,25,94]</textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Calculation</legend>
-		<textarea name="dataCalculation">return data.reduce(function(sum, item) {
+		<textarea name="calculation">return data.reduce(function(sum, item) {
     return sum + item;
 }, 0);</textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Output</legend>
-		<output name="dataOutput"></output>
+		<output name="output"></output>
 	</fieldset>
 </form>
 
@@ -26,12 +26,12 @@
 
 	var calculate = function() {
 		try {
-			data = eval(form.dataInput.value);
-			form.dataOutput.value = eval('(function() {' + form.dataCalculation.value + '})()');
-			form.dataOutput.removeAttribute('data-error');
+			data = eval(form.input.value);
+			form.output.value = eval('(function() {' + form.calculation.value + '})()');
+			form.output.removeAttribute('data-error');
 		} catch (e) {
-			form.dataOutput.value = e.message;
-			form.dataOutput.setAttribute('data-error', true);
+			form.output.value = e.message;
+			form.output.setAttribute('data-error', true);
 		}
 	};
 
@@ -64,7 +64,7 @@ textarea, output {
 	font-size: inherit;
 }
 
-textarea[name=dataCalculation] {
+textarea[name=calculation] {
 	height: 10rem;
 }
 
