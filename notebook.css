@@ -3,6 +3,11 @@ body {
 	font-size: 1.5rem;
 }
 
+fieldset {
+	border: none;
+	margin-bottom: 1rem;
+}
+
 textarea, output {
 	box-sizing: border-box;
 	display: block;
@@ -12,9 +17,8 @@ textarea, output {
 	font-size: inherit;
 }
 
-fieldset {
-	border: none;
-	margin-bottom: 1rem;
+textarea[name=dataCalculation] {
+	height: 10rem;
 }
 
 output[data-error] {

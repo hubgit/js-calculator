@@ -10,11 +10,13 @@
 <form class="calculation">
 	<fieldset>
 		<legend>Data</legend>
-		<textarea name="dataInput">['this', 'is', 'a', 'test']</textarea>
+		<textarea name="dataInput">[1,2,15,19,25,94]</textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Calculation</legend>
-		<textarea name="dataCalculation">return data.join(' ')</textarea>
+		<textarea name="dataCalculation">return data.reduce(function(sum, item) {
+    return sum + item;
+}, 0);</textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Output</legend>
