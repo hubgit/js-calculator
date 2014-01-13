@@ -2,8 +2,6 @@
 <meta charset="utf-8">
 <title>JavaScript Notebook</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 <form class="calculation">
 	<fieldset>
 		<legend>Data</legend>
@@ -26,7 +24,7 @@ $('form.calculation').each(function() {
 	var form = this;
 	var data;
 
-	$(form).on('submit', false).on('input', function() {
+	var calculate = function() {
 		try {
 			data = eval(form.dataInput.value);
 			form.dataOutput.value = eval('(function() {' + form.dataCalculation.value + '})()');
@@ -35,7 +33,14 @@ $('form.calculation').each(function() {
 			form.dataOutput.value = e.message;
 			form.dataOutput.setAttribute('data-error', true);
 		}
-	}).trigger('input');
+	};
+
+	form.addEventListener('submit', function(event) {
+		event.preventDefault();
+	});
+
+	form.addEventListener('input', calculate);
+	calculate();
 });
 </script>
 
