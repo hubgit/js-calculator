@@ -20,8 +20,8 @@
 </form>
 
 <script>
-$('form.calculation').each(function() {
-	var form = this;
+(function() {
+	var form = document.forms[0];
 	var data;
 
 	var calculate = function() {
@@ -41,7 +41,7 @@ $('form.calculation').each(function() {
 
 	form.addEventListener('input', calculate);
 	calculate();
-});
+})();
 </script>
 
 <style>
