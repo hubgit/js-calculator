@@ -45,45 +45,57 @@
 </script>
 
 <style>
-html, body {
-	height: 100%;
-	overflow-y: hidden;
-}
-
 body {
 	font-family: Courier, monospace;
-	font-size: 1.5rem;
-}
-
-form {
-	display: flex;
-	flex-flow: row wrap;
-	height: 90%;
 }
 
 fieldset {
 	border: none;
-	margin-bottom: 1rem;
-	flex: 1;
-	height: 100%;
-}
-
-fieldset:nth-of-type(2) {
-	flex: 2;
 }
 
 textarea, output {
 	box-sizing: border-box;
 	display: block;
+	height: 5em;
 	width: 100%;
-	height: 100%;
 	border: 1px solid #ccc;
 	font-size: inherit;
 	white-space: pre;
-	overflow-y: auto;
 }
 
 output[data-error] {
 	color: red;
+}
+
+@media (min-width: 800px) {
+	html, body {
+		height: 100%;
+		overflow-y: hidden;
+	}
+
+	body {
+		font-size: 1.5rem;
+	}
+
+	form {
+		display: flex;
+		flex-flow: row wrap;
+		height: 90%;
+	}
+
+	fieldset {
+		margin-bottom: 1rem;
+		flex: 1;
+		height: 100%;
+	}
+
+	fieldset:nth-of-type(2) {
+		flex: 2;
+	}
+
+	textarea, output {
+		height: 100%;
+		overflow-y: auto;
+	}
 }
 </style>
